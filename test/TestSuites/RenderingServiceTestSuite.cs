@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using ReportEngine.Service;
 using ReportEngine.ViewModel;
+using System.IO;
 
 namespace ReportEngine.Test.TestSuites
 {
@@ -10,15 +11,18 @@ namespace ReportEngine.Test.TestSuites
         [Fact]
         public async Task Test()
         {
-            var reportService = new ReportService();
+            var reportService = new RenderingHtmlService();
+            var html2PdfService = new Html2PdfService();
             var viewModel = new StandardViewModel
             {
                 Title = "RazorLight rendered Html",
                 Name = "RazorLight"
             };
-            var rendered = await reportService.RenderStandardReportAsync(viewModel);
+            var html = await reportService.RenderStandardReportAsync(viewModel);
 
-            Assert.NotNull(rendered);
+            var pdfData = html2PdfService.ConvertHtml(html);
+            File.WriteAllBytes("output.pdf", pdfData);
+            Assert.NotNull(html);
         }
     }
 }
