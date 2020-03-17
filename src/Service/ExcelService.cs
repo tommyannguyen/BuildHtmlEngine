@@ -15,7 +15,8 @@ namespace ReportEngine.Service
             using var document = SpreadsheetDocument.Open(memoryStream, true);
             var workbookPart = document.WorkbookPart;
             var workbook = workbookPart.Workbook;
-
+            SharedStringTablePart sstpart = workbookPart.GetPartsOfType<SharedStringTablePart>().First();
+            SharedStringTable sst = sstpart.SharedStringTable;
             var sheets = workbook.Descendants<Sheet>();
 
             var firstSheet = sheets.FirstOrDefault(s => s.Name == "Template gửi qua Shell");
@@ -27,17 +28,22 @@ namespace ReportEngine.Service
                 var sharedStringPart = workbookPart.SharedStringTablePart;
                 var rows = worksheetPart.Worksheet.Descendants<Row>();
 
+                Trace.WriteLine($"Sheet {sheet.Name}");
                 foreach (var row in rows)
                 {
                     if (rowCount != 1)
                     {
-                        //int count = row.Elements<Cell>().Count();
-
-                        foreach (Cell c in row.Elements<Cell>())
+                        foreach (Cell cell in row.Elements<Cell>())
                         {
-                            if (c.CellValue != null)
+                            if ((cell.DataType != null) && (cell.DataType == CellValues.SharedString))
                             {
-                                Trace.WriteLine(c.CellValue.InnerText);
+                                int ssid = int.Parse(cell.CellValue.Text);
+                                string str = sst.ChildElements[ssid].InnerText;
+                                Trace.WriteLine($"Shared string {ssid}: {str}");
+                            }
+                            else if (cell.CellValue != null)
+                            {
+                                Trace.WriteLine($"Cell contents: {cell.CellValue.Text}");
                             }
                         }
                     }
