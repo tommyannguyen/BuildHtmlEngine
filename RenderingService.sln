@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RenderingService", "src\RenderingService.csproj", "{2D4CD178-6837-425F-9DA1-E4396CA342CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RenderingService.Test", "test\RenderingService.Test.csproj", "{ACB6CE2D-FD36-460A-AE70-8C3A632084BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D4CD178-6837-425F-9DA1-E4396CA342CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D4CD178-6837-425F-9DA1-E4396CA342CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D4CD178-6837-425F-9DA1-E4396CA342CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D4CD178-6837-425F-9DA1-E4396CA342CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACB6CE2D-FD36-460A-AE70-8C3A632084BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB6CE2D-FD36-460A-AE70-8C3A632084BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACB6CE2D-FD36-460A-AE70-8C3A632084BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACB6CE2D-FD36-460A-AE70-8C3A632084BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECF7AF2D-60CB-467B-9629-42C3AEA7F800}
+	EndGlobalSection
+EndGlobal
