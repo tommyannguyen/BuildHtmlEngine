@@ -17,7 +17,7 @@ namespace ReportEngine.Service
         }
         public async Task<string> RenderStandardReportAsync(StandardViewModel viewModel)
         {
-            return await RenderAsync("Standard",viewModel);
+            return await RenderAsync("Standard", viewModel);
         }
         private async Task<string> RenderAsync(string templateName, object viewModel)
         {
