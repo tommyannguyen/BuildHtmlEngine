@@ -24,5 +24,13 @@ namespace ReportEngine.Test.TestSuites
             File.WriteAllBytes("output.pdf", pdfData);
             Assert.NotNull(html);
         }
+
+        [Fact]
+        public async Task TestWriteTemplate()
+        {
+            var excelService = new ExcelService();
+            excelService.GenerateRewardCatalogue();
+            Assert.True(true);
+        }
     }
 }

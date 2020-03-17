@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Text;
 
 namespace ReportEngine.Util
 {
@@ -13,7 +11,7 @@ namespace ReportEngine.Util
         {
             var assembly = GetAssembly();
             var assemblyName = assembly.GetName().Name;
-            var path = $"{assemblyName}.Templates.{name}.{"cshtml"}";
+            var path = $"{assemblyName}.Templates.{name}.cshtml";
 
             return LoadResource(path, assembly);
         }
@@ -22,9 +20,20 @@ namespace ReportEngine.Util
         {
             var assembly = GetAssembly();
             var assemblyName = assembly.GetName().Name;
-            var path = $"{assemblyName}.Templates.Styles.{name}.{"css"}";
+            var path = $"{assemblyName}.Templates.Styles.{name}.css";
 
             return LoadResource(path, assembly);
+        }
+        public static MemoryStream GetExcelTemplate(string name)
+        {
+            var assembly = GetAssembly();
+            var assemblyName = assembly.GetName().Name;
+            var path = $"{assemblyName}.Templates.Excels.{name}.xlsx";
+
+            using var stream = assembly.GetManifestResourceStream(path);
+            var memoryStream = new MemoryStream();
+            stream.CopyTo(memoryStream);
+            return memoryStream;
         }
 
         private static string LoadResource(string path, Assembly assembly)
