@@ -1,13 +1,22 @@
 ﻿using Xunit;
+using System.Threading.Tasks;
+using ReportEngine.Service;
+using ReportEngine.ViewModel;
 
-namespace RenderingService.Test.TestSuites
+namespace ReportEngine.Test.TestSuites
 {
     public class RenderingServiceTestSuite
     {
         [Fact]
-        public void Test()
+        public async Task Test()
         {
-            var rendered = Service.RenderingService.Render();
+            var reportService = new ReportService();
+            var viewModel = new StandardViewModel
+            {
+                Title = "RazorLight rendered Html",
+                Name = "RazorLight"
+            };
+            var rendered = await reportService.RenderStandardReportAsync(viewModel);
 
             Assert.NotNull(rendered);
         }

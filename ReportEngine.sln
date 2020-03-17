@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RenderingService", "src\RenderingService.csproj", "{2D4CD178-6837-425F-9DA1-E4396CA342CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportEngine", "src\ReportEngine.csproj", "{2D4CD178-6837-425F-9DA1-E4396CA342CE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RenderingService.Test", "test\RenderingService.Test.csproj", "{ACB6CE2D-FD36-460A-AE70-8C3A632084BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportEngine.Test", "test\ReportEngine.Test.csproj", "{ACB6CE2D-FD36-460A-AE70-8C3A632084BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

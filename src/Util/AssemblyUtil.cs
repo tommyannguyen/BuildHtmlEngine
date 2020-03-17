@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 
-namespace RenderingService.Util
+namespace ReportEngine.Util
 {
     internal static class AssemblyUtil
     {

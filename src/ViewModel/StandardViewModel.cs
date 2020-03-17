@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RenderingService.ViewModel
+namespace ReportEngine.ViewModel
 {
     public class StandardViewModel
     {

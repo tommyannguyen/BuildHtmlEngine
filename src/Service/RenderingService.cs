@@ -1,28 +1,28 @@
 ﻿using RazorLight;
-using RenderingService.Util;
-using RenderingService.ViewModel;
+using ReportEngine.Util;
+using ReportEngine.ViewModel;
+using System.Threading.Tasks;
 
-namespace RenderingService.Service
+namespace ReportEngine.Service
 {
-    public class RenderingService
+    public class ReportService
     {
-        public static string Render()
+        private readonly RazorLightEngine _engine;
+        public ReportService()
         {
-            var template = AssemblyUtil.GetTemplateByName("Standard");
-            var viewModel = new StandardViewModel
-            {
-                Title = "RazorLight rendered Html",
-                Name = "RazorLight"
-            };
-
-            var engine = new RazorLightEngineBuilder()
-                // .SetOperatingAssembly(typeof(RenderingService).Assembly)
+            _engine = new RazorLightEngineBuilder()
                 .UseMemoryCachingProvider()
                 .Build();
 
-            var rendered = engine.CompileRenderAsync("Standard", template, viewModel).Result;
-
-            return rendered;
+        }
+        public async Task<string> RenderStandardReportAsync(StandardViewModel viewModel)
+        {
+            return await RenderAsync("Standard",viewModel);
+        }
+        private async Task<string> RenderAsync(string templateName, object viewModel)
+        {
+            var template = AssemblyUtil.GetTemplateByName(templateName);
+            return await _engine.CompileRenderAsync(templateName, template, viewModel);
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿using RenderingService.Util;
+﻿using ReportEngine.Util;
 using System.IO;
 using System.Reflection;
 
-namespace RenderingService
+namespace ReportEngine
 {
     public static class Style
     {

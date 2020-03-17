@@ -1,5 +1,5 @@
 ﻿@using RazorLight
-@inherits TemplatePage<RenderingService.ViewModel.StandardViewModel>
+@inherits TemplatePage<ReportEngine.ViewModel.StandardViewModel>
 
 <!DOCTYPE html>
 
@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <title>@Model.Title</title>
-    @Raw(RenderingService.Style.GetStylesheet("Report"))
+    @Raw(ReportEngine.Style.GetStylesheet("Report"))
 
 </head>
 <body>
